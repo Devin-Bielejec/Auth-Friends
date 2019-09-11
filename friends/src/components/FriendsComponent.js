@@ -5,7 +5,7 @@ const FriendsComponent = () => {
     
     const [friends, setFriends] = useState(false)
     
-    useEffect(
+    useEffect(() => {
         axiosWithAuth().get("http://localhost:5000/api/friends")
         .then(res => {
             console.log(res);
@@ -13,7 +13,7 @@ const FriendsComponent = () => {
         }
         )
         .catch(err => console.log(err))
-        , [friends])
+    }, [])
 
     return(
         <section>
