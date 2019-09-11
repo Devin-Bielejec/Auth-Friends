@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "../axiosAuth";
+import FormikAddFriendForm from "../forms/AddFriendForm";
 
 const FriendsComponent = () => {
     
@@ -19,6 +20,8 @@ const FriendsComponent = () => {
         <section>
             {!friends && <p>Loading your friends</p>}
             {friends && friends.map(friend => <span>{friend.name}</span>)}
+
+            <FormikAddFriendForm/>
         </section>
     )
 }

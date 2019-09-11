@@ -2,6 +2,7 @@ import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { axiosWithAuth } from "../axiosAuth";
 
 function AddFriendForm({ values, errors, touched, isSubmitting }) {
   return (
@@ -18,10 +19,10 @@ function AddFriendForm({ values, errors, touched, isSubmitting }) {
 
         <div>
             {touched.age && errors.age && <p>{errors.age}</p>}
-            <Field type="number" name="number" placeholder="Number" />
+            <Field type="number" name="age" placeholder="Age" />
         </div>
 
-        <button disabled={isSubmitting}>Submit</button>
+        <button type="submit" disabled={isSubmitting}>Submit</button>
     </Form>
   );
 }
@@ -31,7 +32,8 @@ const FormikAddFriendForm = withFormik({
     return {
       email: email || "",
       name: name || "",
-      age: age || 0
+      age: age || 0,
+      id: Date.now()
     };
   },
   validationSchema: Yup.object().shape({
@@ -42,14 +44,12 @@ const FormikAddFriendForm = withFormik({
       .min(2, "Name must be 2 characters or longer")
       .required("Password is required"),
     age: Yup.number()
-        .integer("Must be an integer")
-        .positive("Must be a postive number")
         .required("This is required")
   }),
   handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
-    
-      axios
-        .post("https://yourdatabaseurlgoeshere.com", values)
+      console.log("The Values are", values);
+      axiosWithAuth()
+        .post("https://localhost:5000/api/friends", values)
         .then(res => {
           console.log(res); // Data was created successfully and logs to console
           resetForm();
@@ -60,7 +60,6 @@ const FormikAddFriendForm = withFormik({
           setSubmitting(false);
         });
     }
-  }
-})(LoginForm);
+})(AddFriendForm);
 
-export default FormikLoginForm;
+export default FormikAddFriendForm;

@@ -20,6 +20,8 @@ const LoginComponent = (props) => {
         e.preventDefault();
         setIsLoading(true);
 
+        console.log({username, password})
+
         axios.post("http://localhost:5000/api/login", {username, password})
         .then(res => {
             console.log(res);
