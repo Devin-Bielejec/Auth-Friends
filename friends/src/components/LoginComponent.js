@@ -23,8 +23,8 @@ const LoginComponent = (props) => {
         axios.post("http://localhost:5000/api/login", {username, password})
         .then(res => {
             console.log(res);
-            localStorage.setItem("token", res.data.token);
-            props.history.push("/dashboard");
+            localStorage.setItem("token", res.data.payload);
+            props.history.push("/friends");
         })
         .catch(err => console.log(err))
 
