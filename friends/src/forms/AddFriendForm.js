@@ -4,7 +4,8 @@ import * as Yup from "yup";
 import axios from "axios";
 import { axiosWithAuth } from "../axiosAuth";
 
-function AddFriendForm({ values, errors, touched, isSubmitting }) {
+function AddFriendForm({ values, errors, touched, isSubmitting, addFriend }) {
+  console.log(addFriend);
   return (
     <Form>
         <div>
@@ -46,12 +47,14 @@ const FormikAddFriendForm = withFormik({
     age: Yup.number()
         .required("This is required")
   }),
-  handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
+  handleSubmit(values, { props, resetForm, setErrors, setSubmitting, addFriend, formikBag }) {
       console.log("The Values are", values);
+      console.log(props);
       axiosWithAuth()
-        .post("https://localhost:5000/api/friends", values)
+        .post("http://localhost:5000/api/friends", values)
         .then(res => {
           console.log(res); // Data was created successfully and logs to console
+          props.addFriend(res.data);
           resetForm();
           setSubmitting(false);
         })

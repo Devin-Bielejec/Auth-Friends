@@ -25,23 +25,23 @@ Topics:
 
 ## Initialize Project
 
-* Run `yarn` or `npm i` inside the root directory of this project to install dependencies.
-* Run `yarn start` or `npm start` to start the API server.
-* Run `create-react-app friends` in a separate terminal window in the root directory of the project to create your starter application.
-* `cd` into the _friends_ folder and type `yarn add axios react-router-dom` which will install the needed dependencies.
+[X] Run `yarn` or `npm i` inside the root directory of this project to install dependencies.
+[X] Run `yarn start` or `npm start` to start the API server.
+[X] Run `create-react-app friends` in a separate terminal window in the root directory of the project to create your starter application.
+[X] `cd` into the _friends_ folder and type `yarn add axios react-router-dom` which will install the needed dependencies.
 
 ## Build the App!
-* Add a route for a login page and build out a simple login form with username and password inputs and a submit button (design this however you would like).
-* The login function should save the returned token to localStorage. You can setup `isLoading` state in your Login component, and show a spinner on your form or in your button while the login request is happening.
-* When the request returns, save the token to `localStorage`, then use the history object in your Login component to navigate your user to your FriendsList route
-* Create a `<PrivateRoute />` component to protect your other routes. It should check localStorage for a token, and redirect the user to your login route if there is not a token.
-* Create a protected route for your friends list. Remember, if the user isn't logged in, navigating to this protected route will redirect them to the login page.
-* In your FriendsList component, rendered with `<ProtectedRoute />`, you will create a list of your friends that you get from the API.
+[X] Add a route for a login page and build out a simple login form with username and password inputs and a submit button (design this however you would like).
+[X] The login function should save the returned token to localStorage. You can setup `isLoading` state in your Login component, and show a spinner on your form or in your button while the login request is happening.
+[X] When the request returns, save the token to `localStorage`, then use the history object in your Login component to navigate your user to your FriendsList route
+[X] Create a `<PrivateRoute />` component to protect your other routes. It should check localStorage for a token, and redirect the user to your login route if there is not a token.
+[X] Create a protected route for your friends list. Remember, if the user isn't logged in, navigating to this protected route will redirect them to the login page.
+[X] In your FriendsList component, rendered with `<ProtectedRoute />`, you will create a list of your friends that you get from the API.
 
 **Adding New Friends**
-* Create a form to collects data for a new friend.
-* Make a POST request to add a friend to the database
-* Each `friend` item that is in the `friends` array should have the following format:
+[X] Create a form to collects data for a new friend.
+[X] Make a POST request to add a friend to the database
+[X] Each `friend` item that is in the `friends` array should have the following format:
 
 ```js
 {

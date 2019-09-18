@@ -12,7 +12,7 @@ const PrivateRoute = ({component: Component, ...rest}) => (
       localStorage.getItem("token") ? (
         <Component {...props} />
       ) : (
-        <Redirect exact to="/"/>
+        <Redirect to="/"/>
       )
     }
     />
@@ -25,7 +25,7 @@ function App() {
       <div className="App">
         <ul>
           <li>
-            <Link exact to="/">Login Here!</Link>
+            <Link to="/">Login Here!</Link>
           </li>
 
           <li>
